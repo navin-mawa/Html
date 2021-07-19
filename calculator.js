@@ -1,26 +1,65 @@
 'use strict'
  
-letplusButton = document.querySelector("#plus");
-letsubtractButton = document.querySelector("#subtract");
-letdivideButton = document.querySelector("#divide");
-letmultiplyButton = document.querySelector("#multiply");
-letnumber1Field = document.querySelector("#number1");
-letnumber2Field = document.querySelector("#number2");
-letresultField = document.querySelector("#result");
- 
-// Plus function
-constplusSubmission = (event) => {​​​​​​​​
-event.preventDefault(); 
-resultField.value = Number(number1Field.value) + Number(number2Field.value);
-}​​​​​​​​
- 
-// Subtract function
-constsubtractSubmission = (event) => {​​​​​​​​
-event.preventDefault(); 
-resultField.value = number1Field.value - number2Field.value;
-}​​​​​​​​
- 
-// Associate functions to buttons
-plusButton.addEventListener('click',plusSubmission);
-subtractButton.addEventListener('click',subtractSubmission);
+const firstNumber = document.querySelector("#firstNumber");
+const secondNumber = document.querySelector("#secondNumber");
+const result = document.querySelector('#result');
+const display = document.querySelector("#display");
+const additionButton = document.querySelector("#add");
 
+
+
+const printToHistory = (num1, num2, operator, result) => {
+    const p = document.createElement("p"); // <p> </p>
+    const text = document.createTextNode(`${num1} ${operator} ${num2} = ${result}`); // output 
+
+    p.appendChild(text); // Associating <p> with text // <p> OUTPUT </p>
+    display.appendChild(p); // Associate the element to the existig HTML document
+}
+
+
+// methods 
+const addition = () => {
+    const first = firstNumber.value; 
+    const second = secondNumber.value; 
+    const computation = Number(first) + Number(second);
+    result.value = computation;
+    printToHistory(first, second, "+", computation);
+}
+
+const subtract = () => {
+    const first = firstNumber.value;
+    const second = secondNumber.value;
+    const computation = Number(first) - Number(second);
+    result.value = computation;
+    printToHistory(first, second, "-", computation);
+}
+
+const multiply = () => {
+    const first = firstNumber.value;
+    const second = secondNumber.value;
+    const computation = Number(first) * Number(second);
+    result.value = computation;
+    printToHistory(first, second, "x", computation);
+}
+
+const divide = () => {
+    const first = firstNumber.value;
+    const second = secondNumber.value;
+    const computation = Number(first) / Number(second);
+    result.value = computation;
+    printToHistory(first, second, "/", computation);
+}
+
+const resetValues = () => {
+
+    firstNumber.value="";
+    secondNumber.value="";
+    result.value="";
+
+}
+
+const clearHistory = () => {
+    display.innerHTML = "";
+}
+
+additionButton.addEventListener("click", addition);

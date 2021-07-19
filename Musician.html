@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Musician</h1>
+
+<form method="POST">
+    <input type="text" id="name" name="name" placeholder="Enter Name:" />
+    <input type="text" id="birthPlace" name="birthPlace" placeholder="Enter Birth Place:" />
+    <input type="number" id="noOfAwards" name="noOfAwards" placeholder="Enter number of awards" />
+    <input type="number" id="yearOfBirth" name="yearOfBirth" placeholder="Enter year Of Birth" />
+
+    <button type="submit" id="btn" name="submit">Submit</button>
+
+</form>
+
+<hr/>
+
+<h2>DELETE</h2>
+<input type="number" id="deleteID" placeholder="Enter the id you want to delete"/>
+<button type="submit" id="delBtn">Delete Musician</button>
+<div id="heloofromdb"></div>
+
+<h3>READ</h3>
+<!-- <form method="GET"></form> -->
+<input type="number" id="readID" placeholder="Enter the id you want to Read"/>
+<button type="submit" id="readBtn">Read Musician</button>
+<div id="heloofromdb"></div>
+<!-- </form> -->
+
+<h4>UPDATE</h4>
+<form method="PUT">
+    <input type="number" id="updateID" placeholder="Enter the id you want to update"/>
+    <input type="text" id="updateName" name="name" placeholder="Enter Name to:" />
+    <input type="text" id="updateBirthPlace" name="birthPlace" placeholder="Enter Birth Place:" />
+    <input type="number" id="updateNoOfAwards" name="noOfAwards" placeholder="Enter number of awards" />
+    <input type="number" id="updateYearOfBirth" name="yearOfBirth" placeholder="Enter year Of Birth" />
+
+    <button type="submit" id="updateBtn" name="submit">Submit</button>
+
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" 
+integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" 
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./Musician.js"></script>
+
+</body>
+</html>
