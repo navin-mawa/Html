@@ -70,25 +70,22 @@ const deleteMusician = () => {
 const readMusician = (e) => {
     e.preventDefault();
 
-    if (readMusicianIdField.value = ``){
+    // if (readMusicianIdField.value = ``){
         axios.get(`http://localhost:1703/musician/read/`,{//${NAME_VALUE,PLACE_VALUE,AWARDS_VALUE,BIRTH_VALUE}`,{
     Headers:{
         'Access-Control-Allow-origin':'*' ,
-    }}) 
-.then( (response) => printToScreen("yes"))
-.catch((error) => console.error("Y"));
-console.log("data")
+    }})
+.then(response =>  {return response;})
+.then(data => {
+    console.log(data.data);
+    const html = data.data
+        .map(response => {
+        return '<p>name: ${response.name, response.birthplace, response.noOfAwards, response.yearOfBirth}</p>';
+    }).join("");
+    console.log(html)
+document.querySelector('#responsefromdb').insertAdjacentHTML("afterbegin", html);
+})
 }
-
-    }
-    // const NAME_VALUE = NAME.value;
-    // const PLACE_VALUE = BIRTHPLACE.value;
-    // const AWARDS_VALUE = NOOFAWARDS.value;
-    // const BIRTH_VALUE = YEAROFBIRTH.value;
-
-    
-
-
 
 const updateMusician = (e) => {
     e.preventDefault();
